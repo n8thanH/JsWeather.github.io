@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Weather</title>
+
+    <style>
+        /*#79ADDC*/
+        /*#07004D*/
+        /*#FFFCF9*/
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #79ADDC;
+        }
+
+        #theFather {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            font-size: 3vw;
+            padding: 3vw;
+            background-color: #07004D;
+            color: white;
+            width: 100%;
+        }
+
+        #pageContent {
+            padding: 5vw;
+            width: 100%;
+        }
+
+        #panel {
+            background-color: #07004D;
+            color: white;
+            padding: 5vw;
+            text-align: center;
+        }
+
+        #info {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 5vh;
+        }
+
+        #placeName {
+            margin-bottom: 5vh;
+        }
+
+        button {
+            padding: 1vw;
+            font-size: 1vw;
+            background-color: #2b00ff;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .p {
+            font-size: 1.4vw;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <div id="theFather">
+        <header>Weather Information</header>
+        <div id="pageContent">
+            <div id="panel">
+                <h2 id="placeName"></h2>
+                <div id="info">
+                    <p class="p" id="sky"></p>
+                    <p class="p" id="temp"></p>
+                </div>
+                <button id="getinfo">Get Random Info</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        let weather = [
+            {
+                name: 'Glendale', 
+                temp: '20 C',
+                sky: 'Overcast'
+            },
+
+            {
+                name: 'Peoria', 
+                temp: '16 C',
+                sky: 'Sunny'
+            },
+
+            {
+                name: 'Phoenix', 
+                temp: '21 C',
+                sky: 'Partly Cloudy'
+            },
+
+            {
+                name: 'Tucson', 
+                temp: '18 C',
+                sky: 'Partly Cloudy'
+            },
+
+            {
+                name: 'Flagstaff', 
+                temp: '13 C',
+                sky: 'Partly Cloudy'
+            },
+
+            {
+                name: 'Wickenburg', 
+                temp: '14 C',
+                sky: 'Sunny'
+            },
+
+            {
+                name: 'Payson', 
+                temp: '15 C',
+                sky: 'Overcast'
+            },
+
+            {
+                name: 'Surface of Sun', 
+                temp: '5504.85 C',
+                sky: 'Clear'
+            },
+
+            {
+                name: 'Surprise', 
+                temp: '21 C',
+                sky: 'Clear Sky'
+            },
+
+            {
+                name: 'Mesa', 
+                temp: '19 C',
+                sky: 'Partly Cloudy'
+            }
+        ];
+
+        const infoButton = document.getElementById('getinfo');
+        const placeName = document.getElementById('placeName');
+        const skyText = document.getElementById('sky');
+        const tempText = document.getElementById('temp');
+
+        infoButton.addEventListener('click', () => {
+                const num = Math.floor(Math.random() * 10);
+                const object = weather.slice(num, num + 1);
+                placeName.innerText = object[0].name;
+                skyText.innerText = object[0].sky;
+                tempText.innerText = object[0].temp;
+            }
+        )
+
+    </script>
+</body>
+</html>
